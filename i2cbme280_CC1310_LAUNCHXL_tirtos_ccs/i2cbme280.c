@@ -36,6 +36,9 @@
 #include <stdint.h>
 #include <stddef.h>
 
+/* XDC Header files */
+#include <xdc/runtime/System.h>
+
 /* POSIX Header files */
 #include <unistd.h>
 
@@ -104,6 +107,8 @@ void *mainThread(void *arg0)
         Display_print3(display, 0, 0, "%u KPa(Pressure), %f DegF(Temp), %u %%RH(Humidity)\n",
                     g_u32ActualPress/1000, fDegree,
                     g_u32ActualHumity/1000);
+
+        System_printf("DegF: %f\n", fDegree);
 
         sleep(1);
     }
