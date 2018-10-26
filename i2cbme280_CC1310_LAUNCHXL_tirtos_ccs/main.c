@@ -41,57 +41,33 @@
 
 /* RTOS header files */
 #include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
 
 /* Example/Board Header files */
 #include "Board.h"
 
-extern void *mainThread(void *arg0);
+/* Header files */
+#include "i2cbme280.h"
+#include "../Radio_Common/tx_radio.h"
+#include "controller.h"
 
-/* Stack size in bytes */
-#define THREADSTACKSIZE    768
+void mainFxn()
+{
+    /*Initial Setups*/
+    I2cBme280Init();
+    SetupTx();
+    RunPuck();
+}
 
 /*
  *  ======== main ========
  */
 int main(void)
 {
-    pthread_t           thread;
-    pthread_attr_t      pAttrs;
-    struct sched_param  priParam;
-    int                 retc;
-    int                 detachState;
 
     /* Call driver init functions */
     Board_initGeneral();
 
-    /* Set priority and stack size attributes */
-    pthread_attr_init(&pAttrs);
-    priParam.sched_priority = 1;
-
-    detachState = PTHREAD_CREATE_DETACHED;
-    retc = pthread_attr_setdetachstate(&pAttrs, detachState);
-    if (retc != 0) {
-        /* pthread_attr_setdetachstate() failed */
-        while (1);
-    }
-
-    pthread_attr_setschedparam(&pAttrs, &priParam);
-
-    retc |= pthread_attr_setstacksize(&pAttrs, THREADSTACKSIZE);
-    if (retc != 0) {
-        /* pthread_attr_setstacksize() failed */
-        while (1);
-    }
-
-    retc = pthread_create(&thread, &pAttrs, mainThread, NULL);
-    if (retc != 0) {
-        /* pthread_create() failed */
-        while (1);
-    }
-
-    /* destroy pthread attribute */    
-    pthread_attr_destroy(&pAttrs);
-    
     BIOS_start();
 
     return (0);

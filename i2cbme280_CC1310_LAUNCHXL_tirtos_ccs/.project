@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>tirtos_builds_CC1310_LAUNCHXL_release_ccs</project>
+		<project>Radio_Common</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

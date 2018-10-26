@@ -53,63 +53,51 @@
 /* Example/Board Header files */
 #include "Board.h"
 
-int32_t     g_s32ActualTemp   = 0;
-uint32_t    g_u32ActualPress  = 0;
-uint32_t    g_u32ActualHumity = 0;
-
 I2C_Handle      i2c;
 I2C_Params      i2cParams;
 
-static Display_Handle display;
-
 extern s32 bme280_data_readout_template(I2C_Handle i2cHndl);
 
-/*
- *  ======== mainThread ========
- */
-void *mainThread(void *arg0)
+void I2cBme280Init()
 {
-    float fDegree;
     /* Call driver init functions */
-    GPIO_init();
-    I2C_init();
+       GPIO_init();
+       I2C_init();
 
     /* Open the HOST display for output */
-    display = Display_open(Display_Type_UART, NULL);
-    if (display == NULL) {
-        while (1);
-    }
-    Display_print0(display, 0, 0, "Starting the i2cbme280 sensor example...\n\n");
 
     I2C_Params_init(&i2cParams);
     i2cParams.bitRate = I2C_400kHz;
     i2cParams.transferMode = I2C_MODE_BLOCKING;
     i2cParams.transferCallbackFxn = NULL;
     i2c = I2C_open(Board_I2C0, &i2cParams);
-    if (i2c == NULL) {
-        Display_print0(display, 0, 0, "Error Initializing I2C\n");
+    if (i2c == NULL)
+    {
+        System_printf("Error Initializing I2C\n");
     }
-    else {
-        Display_print0(display, 0, 0, "I2C Initialized!\n");
+    else
+    {
+        System_printf("I2C Initialized!\n");
     }
 
     /* Initialize the BME Sensor */
     bme280_data_readout_template(i2c);
     bme280_set_power_mode(BME280_NORMAL_MODE);
 
-    while(1)
-    {
-        bme280_read_pressure_temperature_humidity(
-        &g_u32ActualPress, &g_s32ActualTemp, &g_u32ActualHumity);
+}
 
-        fDegree = (g_s32ActualTemp/(float)100) * (9/(float)5) + 32;
+uint8_t CaptureAmbient(float *temp, uint32_t *pressure, uint32_t *humidity)
+{
+    int32_t     actualTemp   = 0;
+    uint8_t     retval = 0;
+    retval = bme280_read_pressure_temperature_humidity(pressure, &actualTemp, humidity);
 
-        Display_print3(display, 0, 0, "%u KPa(Pressure), %f DegF(Temp), %u %%RH(Humidity)\n",
-                    g_u32ActualPress/1000, fDegree,
-                    g_u32ActualHumity/1000);
+    /*Farenheit*/
+    *temp = (actualTemp/(float)100) * (9/(float)5) + 32;
 
-        System_printf("DegF: %f\n", fDegree);
+    System_printf("%d KPa, %f DegF, %d %%RH\n",
+                  (*pressure)/1000, *temp,
+                  (*humidity)/1000);
 
-        sleep(1);
-    }
+    return retval;
 }
