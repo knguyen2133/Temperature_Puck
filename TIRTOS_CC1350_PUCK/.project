@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Temperature_Puck</name>
+	<name>TIRTOS_CC1350_PUCK</name>
 	<comment></comment>
 	<projects>
-		<project>tirtos_builds_CC1310_LAUNCHXL_release_ccs</project>
-		<project>Radio_Common</project>
-		<project>TIRTOS_CC1350_PUCK</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -21,17 +18,11 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.rtsc.xdctools.buildDefinitions.XDC.xdcNature</nature>
 		<nature>com.ti.ccstudio.core.ccsNature</nature>
 		<nature>org.eclipse.cdt.core.cnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>Board.html</name>
-			<type>1</type>
-			<locationURI>COM_TI_SAIL_INSTALL_DIR/source/ti/boards/CC1310_LAUNCHXL/Board.html</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
