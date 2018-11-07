@@ -116,10 +116,10 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LIB_OUTPUTS += \
-tirtos_builds_CC1350_LAUNCHXL_release_ccs.lib \
+TIRTOS_CC1350_PUCK.lib \
 
 LIB_OUTPUTS__QUOTED += \
-"tirtos_builds_CC1350_LAUNCHXL_release_ccs.lib" \
+"TIRTOS_CC1350_PUCK.lib" \
 
 
 # All Target
@@ -128,14 +128,14 @@ all:
 	@$(MAKE) --no-print-directory main-build
 
 # Main-build Target
-main-build: tirtos_builds_CC1350_LAUNCHXL_release_ccs.lib
+main-build: TIRTOS_CC1350_PUCK.lib
 
 # Tool invocations
-tirtos_builds_CC1350_LAUNCHXL_release_ccs.lib: $(OBJS) $(OBJ_SRCS)
+TIRTOS_CC1350_PUCK.lib: $(OBJS) $(OBJ_SRCS)
 ifneq ($(strip $(ORDERED_OBJS)),)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: ARM Archiver'
-	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_18.9.0.STS/bin/armar" r "tirtos_builds_CC1350_LAUNCHXL_release_ccs.lib" $(ORDERED_OBJS)
+	"C:/ti/ccsv7/tools/compiler/ti-cgt-arm_18.9.0.STS/bin/armar" r "TIRTOS_CC1350_PUCK.lib" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 endif

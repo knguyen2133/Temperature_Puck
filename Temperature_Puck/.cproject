@@ -58,6 +58,8 @@
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.DIAG_WRAP.67685440" name="Wrap diagnostic messages (--diag_wrap)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.DIAG_WRAP" value="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.DIAG_WRAP.off" valueType="enumerated"/>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.DISPLAY_ERROR_NUMBER.512032712" name="Emit diagnostic identifier numbers (--display_error_number, -pden)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.DISPLAY_ERROR_NUMBER" value="true" valueType="boolean"/>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.GEN_FUNC_SUBSECTIONS.426476704" name="Place each function in a separate subsection (--gen_func_subsections, -ms)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.GEN_FUNC_SUBSECTIONS" value="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.GEN_FUNC_SUBSECTIONS.on" valueType="enumerated"/>
+								<option id="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.OPT_FOR_SPEED.377818654" name="Speed vs. size trade-offs (--opt_for_speed, -mf)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.OPT_FOR_SPEED" value="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.OPT_FOR_SPEED.3" valueType="enumerated"/>
+								<option id="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.OPT_LEVEL.1737489826" name="Optimization level (--opt_level, -O)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.OPT_LEVEL" value="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compilerID.OPT_LEVEL.4" valueType="enumerated"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compiler.inputType__C_SRCS.2010028832" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compiler.inputType__CPP_SRCS.523791466" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compiler.inputType__ASM_SRCS.3584363" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_18.9.compiler.inputType__ASM_SRCS"/>
@@ -102,7 +104,7 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="Radio_Common;com.ti.ccstudio.buildDefinitions.TMS470.Debug.1766703475" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
-				<externalSettings containerId="tirtos_builds_CC1310_LAUNCHXL_release_ccs;com.ti.ccstudio.buildDefinitions.TMS470.Debug.2122260808" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
+				<externalSettings containerId="TIRTOS_PUCK;com.ti.ccstudio.buildDefinitions.TMS470.Debug.2122260808" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
 			</storageModule>
 		</cconfiguration>
 		<cconfiguration id="com.ti.ccstudio.buildDefinitions.TMS470.Release.916147905">
@@ -202,9 +204,7 @@
 					</sourceEntries>
 				</configuration>
 			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
-				<externalSettings containerId="tirtos_builds_CC1310_LAUNCHXL_release_ccs;" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier"/>
-			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>

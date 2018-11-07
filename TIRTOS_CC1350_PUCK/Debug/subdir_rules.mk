@@ -5,18 +5,18 @@
 SHELL = cmd.exe
 
 # Each subdirectory must supply rules for building sources it contributes
-build-62969583:
-	@$(MAKE) --no-print-directory -Onone -f subdir_rules.mk build-62969583-inproc
+build-79654353:
+	@$(MAKE) --no-print-directory -Onone -f subdir_rules.mk build-79654353-inproc
 
-build-62969583-inproc: ../release.cfg
+build-79654353-inproc: ../release.cfg
 	@echo 'Building file: "$<"'
 	@echo 'Invoking: XDCtools'
 	"C:/ti/xdctools_3_50_04_43_core/xs" --xdcpath="C:/ti/simplelink_cc13x0_sdk_2_30_00_20/source;C:/ti/simplelink_cc13x0_sdk_2_30_00_20/kernel/tirtos/packages;C:/ti/ccsv7/ccs_base;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M3 -p ti.platforms.simplelink:CC1350F128 -r release -c "C:/ti/ccsv7/tools/compiler/ti-cgt-arm_18.9.0.STS" --compileOptions " -DDeviceFamily_CC13X0 " "$<"
 	@echo 'Finished building: "$<"'
 	@echo ' '
 
-configPkg/linker.cmd: build-62969583 ../release.cfg
-configPkg/compiler.opt: build-62969583
-configPkg/: build-62969583
+configPkg/linker.cmd: build-79654353 ../release.cfg
+configPkg/compiler.opt: build-79654353
+configPkg/: build-79654353
 
 

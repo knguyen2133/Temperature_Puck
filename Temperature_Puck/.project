@@ -3,8 +3,8 @@
 	<name>Temperature_Puck</name>
 	<comment></comment>
 	<projects>
-		<project>tirtos_builds_CC1310_LAUNCHXL_release_ccs</project>
 		<project>Radio_Common</project>
+		<project>TIRTOS_PUCK</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
