@@ -17,15 +17,15 @@ void RunPuck()
     uint8_t retval;
     float temperature;
     uint32_t pressure, humidity;
-    uint8_t txBuffer[BUFFER_LENGTH];
+    uint8_t txBuffer[AMBIENT_LENGTH];
 
     while(1)
     {
         retval = CaptureAmbient(&temperature, &pressure, &humidity);
         if(retval == 0)
         {
-            CreateTxPacket(txBuffer, temperature, pressure, humidity);
-            BlockingTx(txBuffer, BUFFER_LENGTH);
+            CreateTxPacket(txBuffer, AMBIENT_LENGTH, temperature, pressure, humidity);
+            BlockingTx(txBuffer, AMBIENT_LENGTH);
         }
         else
         {

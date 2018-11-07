@@ -14,5 +14,5 @@
 	<templateProperties value="id=i2cbme280_CC1310_LAUNCHXL_tirtos_ccs.projectspec.i2cbme280_CC1310_LAUNCHXL_tirtos_ccs,buildProfile=release,isHybrid=true,"/>
 	<origin value="C:\ti\sail_1_20_00_02\examples\rtos\CC1310_LAUNCHXL\sail\i2cbme280\tirtos\ccs\i2cbme280_CC1310_LAUNCHXL_tirtos_ccs.projectspec"/>
 	<filesToOpen value=""/>
-	<isTargetManual value="false"/>
+	<isTargetManual value="true"/>
 </projectOptions>

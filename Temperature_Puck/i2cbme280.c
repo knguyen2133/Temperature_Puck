@@ -95,9 +95,9 @@ uint8_t CaptureAmbient(float *temp, uint32_t *pressure, uint32_t *humidity)
     /*Farenheit*/
     *temp = (actualTemp/(float)100) * (9/(float)5) + 32;
 
-    System_printf("%d KPa, %f DegF, %d %%RH\n",
+    /*System_printf("%d KPa, %f DegF, %d %%RH\n",
                   (*pressure)/1000, *temp,
                   (*humidity)/1000);
-
+     */
     return retval;
 }
