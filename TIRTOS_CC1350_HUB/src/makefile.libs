@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     C:\Users\Kevin\Documents\GitHub\Temperature_Hub\tirtos_builds_CC1350_LAUNCHXL_release_ccs\release.cfg
+#     C:\Users\Kevin\Documents\GitHub\Temperature_Puck\TIRTOS_CC1350_HUB\release.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,7 +14,7 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    C:\Users\Kevin\Documents\GitHub\Temperature_Hub\tirtos_builds_CC1350_LAUNCHXL_release_ccs\src
+#    C:\Users\Kevin\Documents\GitHub\Temperature_Puck\TIRTOS_CC1350_HUB\src
 #
 GEN_SRC_DIR ?= ../src
 
@@ -28,7 +28,7 @@ endif
 # a prerequisite
 #
 .PHONY: .force
-
+      
 #
 # ======== library macros ========
 #
@@ -52,10 +52,11 @@ OBJS += $(sysbios_LIB)
 #
 # ======== rules ========
 #
-$(sysbios_LIB): .force
+$(sysbios_LIB): .force 
 	@echo making $@ ...
 	@$(MAKE) -C $(sysbios_SRC)
 
 .sysbios_clean:
 	@echo cleaning $(sysbios_SRC) ...
 	-@$(MAKE) --no-print-directory -C $(sysbios_SRC) clean
+
